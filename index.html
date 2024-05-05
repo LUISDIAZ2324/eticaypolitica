@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>El Precio del Futuro</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-QWGWQ79G1G"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-QWGWQ79G1G");
+  </script>
+  <body>
+    <form
+      action="https://formspree.io/f/xyyrookb"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      <h1 class="titel">EL PRECIO DEL FUTURO</h1>
+
+      <div class="Pregunta1">
+        <h3 class="titel3">¿Se considera usted una persona honesta?</h3>
+        <div class="container_button">
+          <label class="radio-button">
+            <input
+              type="radio"
+              name="honesty"
+              class="button1"
+              value="Si soy  honesto"
+              onclick="registerHonesty(true)"
+              required
+            />
+            <span class="radio-button-inner">Si</span>
+          </label>
+          <label class="radio-button">
+            <input
+              type="radio"
+              name="honesty"
+              class="button2"
+              value="No soy  honesto"
+              onclick="registerHonesty(false)"
+              required
+            />
+            <span class="radio-button-inner">No</span>
+          </label>
+        </div>
+
+        <div class="result" id="result-honesty"></div>
+      </div>
+
+      <div class="Pregunta2">
+        <h3 class="titel3">¿Cuál es tu nombre?</h3>
+        <input
+          type="text"
+          id="nombre"
+          placeholder="Escriba su nombre"
+          oninput="validateName()"
+          style="text-transform: uppercase"
+          required
+          name="nombre"
+        />
+        <input type="hidden" id="nombreHidden" name="nombre" />
+      </div>
+      <div class="Pregunta3">
+        <h3 class="titel3">Selecciona tu Facultad:</h3>
+        <div class="container">
+          <select
+            class="select_facultad"
+            id="facultad"
+            onchange="showInfo()"
+            name="Facultad"
+            required
+          >
+            <option value="" selected disabled>Seleccione una Facultad</option>
+            <option value="Derecho">Derecho</option>
+            <option value="Biología Ambiental">Biología Ambiental</option>
+            <option value="Ingeniería Civil">Ingeniería Civil</option>
+            <option value="Ingeniería Electrónica">
+              Ingeniería Electrónica
+            </option>
+            <option value="Ingeniería Industrial">Ingeniería Industrial</option>
+            <option value="Ingeniería Mecánica">Ingeniería Mecánica</option>
+            <option value="Ingeniería de Sistemas">
+              Ingeniería de Sistemas
+            </option>
+            <option value="Administración de Empresas">
+              Administración de Empresas
+            </option>
+            <option value="Arquitectura">Arquitectura</option>
+            <option value="Comunicación Social y Periodismo">
+              Comunicación Social y Periodismo
+            </option>
+            <option value="Diseño">Diseño</option>
+            <option value="Psicología">Psicología</option>
+          </select>
+          <div class="result" id="info-container">
+            <!-- Aquí se mostrará la información de empleos, noticias, y administración de sueldos -->
+          </div>
+        </div>
+      </div>
+
+      <div class="Pregunta4">
+        <h3 class="titel3">¿Quieres activar la cámara?</h3>
+        <div class="container_button">
+          <label class="radio-button">
+            <input
+              type="radio"
+              class="button1"
+              name="camera"
+              onclick="toggleCamera(true)"
+              required
+              value="camara activa"
+            />
+            <span class="radio-button-inner">Si</span>
+          </label>
+          <label class="radio-button">
+            <input
+              type="radio"
+              class="button2"
+              name="camera"
+              onclick="toggleCamera(false)"
+              required
+              value="camara no activa"
+            />
+            <span class="radio-button-inner">No</span>
+          </label>
+        </div>
+        <div class="container_camera">
+          <div class="camera" id="camera-container" style="display: none">
+            <video id="video" width="320" height="240" autoplay></video>
+            <div class="container_button">
+              <label class="radio-button">
+                <input
+                  type="radio"
+                  class="button1"
+                  onclick="takePhoto()"
+                  required
+                />
+                <span class="radio-button-inner"
+                  ><i class="icon_foto bx bx-plus"></i
+                ></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="photo" id="photo-result">
+        <!-- Aquí se mostrará la foto o el mensaje final -->
+      </div>
+      
+      <script src="./Js/funtion_camera_link.js"></script>
+      <input type="submit" value="Guardar Datos" />
+    </form>
+  </body>
+</html>
